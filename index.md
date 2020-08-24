@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+## Introduction to Data Science 1MS041
 
-You can use the [editor on GitHub](https://github.com/datascience-intro/1MS041-2020/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This page, contains the lecture notes
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Individual SageMath Jupyter .ipynb Notebooks
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/datascience-intro/1MS041-2020/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+* [00. Introduction](00.md)
+* 01. BASH crash
+* 02. Numbers, Strings, Booleans and Sets
+* 03. Map, Function, Collection, and Probability
+* 04. Conditional Probability, Random Variables, Loops and Conditionals
+* 05. Random Variables, Expectations, Data, Statistics, Arrays and Tuples, Iterators and Generators
+* 06. Statistics and List Comprehensions with New Zealand Earthquakes
+* 07. Modular Arithmetic, Linear Congruential Generators, and Pseudo-Random Numbers
+* 08. Pseudo-Random Numbers, Simulating from Some Discrete and Continuous Random Variables
+* 09. Estimation, Likelihood, Maximum Likelihood Estimators and Symbolic Expressions
+* 10. Markov Chains
+* 11. Limits, Convergence, and Estimation
+* 12. Non-parametric Estimation and Testing
