@@ -16,3 +16,12 @@
 11. [Non-parametric Estimation and Testing](11.md)
 12. [Linear Regression](12.md)
 13. [TBA](13.md)
+
+
+### Starting package
+* Download the [Starting package](Files/first_lecture_and_data.zip)
+* Unzip this into a folder that you will use as the base folder
+* Whenever you download the next lectures as `ipynb` files, you put them in the same place as `00.ipynb` and `01.ipynb`, this way all pathways will be the same for all of us.
+
+### Other files
+If you want to do everything yourself, here is the data-zip file, [Only Data](Files/data.zip).
