@@ -13417,62 +13417,6 @@ You may need to include and evaluate code snippets from lecture notebooks in cel
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This answer can be arrived by following the exact same reasoning in 04.ipynb about throwing two independent dice</span>
-<span class="n">ProbOfDGivenC</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">local_points</span><span class="o">=</span><span class="mi">0</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">assert</span><span class="p">(</span><span class="n">ProbOfDGivenC</span> <span class="o">==</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You have failed to pass the test for this problem. See solution.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You have passed the test for this problem, congratulations!&quot;</span><span class="p">)</span>
-    <span class="n">local_points</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="k">finally</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of points you have scored for this problem so far = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">local_points</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>You have passed the test for this problem, congratulations!
-The number of points you have scored for this problem so far = 1
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -16382,63 +16326,6 @@ $$<p>In the next cell write a function named <code>pmfOfBernoulli</code> that ta
     <span class="n">RRR</span>
     <span class="o">...</span>
     <span class="n">RRR</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">local_points</span><span class="o">=</span><span class="mi">0</span>
-
-<span class="c1"># This is just one possible solution to pass the hidden tests to get all 2 points</span>
-<span class="c1"># You may have written it differently and as long as you passed the test it is fine.</span>
-<span class="k">def</span> <span class="nf">pmfOfBernoulli</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;return the probability of a Bernoulli(theta) RV with outcome x, i.e., the PMF f(x; theta)&#39;&#39;&#39;</span>
-    <span class="n">pmfValue</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># pmf value is 0 for all x except when x=0 or x=1</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">pmfValue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">theta</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">pmfValue</span> <span class="o">=</span> <span class="n">theta</span>
-    <span class="k">return</span> <span class="n">pmfValue</span>
-
-<span class="c1"># the above function is good enough for now, but those who want to put Try-Catch we saw later to use see below!</span>
-<span class="k">def</span> <span class="nf">pmfOfBernoulliInReallyAppliedStatistics</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;return the probability of a Bernoulli(theta) RV with outcome x, i.e., the PMF f(x; theta) more properly&#39;&#39;&#39;</span>
-    <span class="c1">##################################################################################################################</span>
-    <span class="c1"># you&#39;ll get credits without try-catch; in &quot;Really Applied Stats&quot; it&#39;s important to check edge cases &amp; constraints</span>
-    <span class="c1"># first try-catch to check that theta is a real number and in the allowed parameter range [0,1]</span>
-    <span class="k">try</span><span class="p">:</span> 
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">theta</span><span class="o">.</span><span class="n">n</span><span class="p">(</span><span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span> <span class="n">sage</span><span class="o">.</span><span class="n">rings</span><span class="o">.</span><span class="n">real_mpfr</span><span class="o">.</span><span class="n">RealNumber</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">theta</span> <span class="o">&gt;=</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">theta</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input Error: parameter theta should be a real number in [0,1]&quot;</span><span class="p">)</span>
-        <span class="n">pmfValue</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># return Python type &#39;None&#39; as pmf value when theta is undefined</span>
-    <span class="c1"># second try-catch to see if the outcome_x is convertible into a real number</span>
-    <span class="k">try</span><span class="p">:</span> 
-        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">n</span><span class="p">(</span><span class="n">digits</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span> <span class="n">sage</span><span class="o">.</span><span class="n">rings</span><span class="o">.</span><span class="n">real_mpfr</span><span class="o">.</span><span class="n">RealNumber</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input Error: Bernoulli outcome x should be a real number as it is a real-valued random variable&quot;</span><span class="p">)</span>
-        <span class="n">pmfValue</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># return Python type &#39;None&#39; as pmf value when theta is undefined</span>
-    <span class="c1">################################################################################################################## </span>
-    <span class="n">pmfValue</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># pmf value is 0 for all x except when x=0 or x=1</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">pmfValue</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">theta</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">pmfValue</span> <span class="o">=</span> <span class="n">theta</span>
-    <span class="k">return</span> <span class="n">pmfValue</span>
-
-<span class="c1">### for example the following inputs will be flagged as input errors now for Try-Catch&#39;d version</span>
-<span class="c1"># pmfOfBernoulliInReallyAppliedStatistics(1, -0.5)</span>
-<span class="c1"># pmfOfBernoulliInReallyAppliedStatistics(&#39;b&#39;, 0.5)</span>
-<span class="c1">### but NOT for the quick version - which is good enough to pass all tests for us now, </span>
-<span class="c1">### since we as users of this function know types and constraints need to be put into the input parameters</span>
-<span class="c1"># pmfOfBernoulli(1, -0.5) # gives -0.5 as the pmf value! this is mathematically incorrect</span>
-<span class="c1"># pmfOfBernoulli(&#39;hahaha&#39;, -0.5) # gives 0 as the pmf value! mathematically incorrect</span>
 </pre></div>
 
     </div>
