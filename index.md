@@ -17,6 +17,10 @@
 12. [Linear Regression](12.md)
 13. [TBA](13.md)
 
+### Assignments
+01. [Assignment 1](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_1.ipynb)
+02. [Assignment 2](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_2.ipynb)
+03. [Assignment 3](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_3.ipynb)
 
 ### Starting package
 * Download the [Starting package](Files/first_lecture_and_data.zip)
