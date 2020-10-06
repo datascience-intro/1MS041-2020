@@ -13184,7 +13184,7 @@ $$<h3 id="The-likelihood-Function-for-the-$Bernoulli(\theta)$-RV">The likelihood
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this needs to be hidden</span>
@@ -13239,7 +13239,7 @@ $$<h3 id="The-likelihood-Function-for-the-$Bernoulli(\theta)$-RV">The likelihood
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13269,7 +13269,7 @@ To show/hide this cell's raw code input, click <a href="javascript:code_toggle()
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Press Ctrl+Enter to evaluate this cell </span>
@@ -13303,7 +13303,7 @@ To show/hide this cell's raw code input, click <a href="javascript:code_toggle()
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># evaluate the hidden cell above and hide it immediately - its generating our simulated data from a secret theta*</span>
@@ -13360,7 +13360,7 @@ $$<p>If you are wondering what the space $\mathbb{T}_n$ is for the $Bernoulli$, 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tn</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">bSample</span><span class="p">)</span>
@@ -13377,7 +13377,7 @@ $$<p>If you are wondering what the space $\mathbb{T}_n$ is for the $Bernoulli$, 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -13402,7 +13402,7 @@ $$<p>If you are wondering what the space $\mathbb{T}_n$ is for the $Bernoulli$, 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">likelihoodBernoulli</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">tStatistic</span><span class="p">):</span>
@@ -13465,7 +13465,7 @@ $$<p>If you are wondering what the space $\mathbb{T}_n$ is for the $Bernoulli$, 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bernoulliSample0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -13483,7 +13483,7 @@ $$<p>If you are wondering what the space $\mathbb{T}_n$ is for the $Bernoulli$, 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13509,7 +13509,7 @@ $$<p>If you are wondering what the space $\mathbb{T}_n$ is for the $Bernoulli$, 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryTheta0</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># a value of theta to find the likelihood for</span>
@@ -13529,7 +13529,7 @@ $$<p>If you are wondering what the space $\mathbb{T}_n$ is for the $Bernoulli$, 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13559,7 +13559,7 @@ $$<p>Remember that the idea behind the likelihood function is "what is the likel
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryTheta1</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># a value of theta to find the likelihood for</span>
@@ -13579,7 +13579,7 @@ $$<p>Remember that the idea behind the likelihood function is "what is the likel
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13604,7 +13604,7 @@ $$<p>Remember that the idea behind the likelihood function is "what is the likel
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tryTheta1</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># a value of theta to find the likelihood for</span>
@@ -13624,7 +13624,7 @@ $$<p>Remember that the idea behind the likelihood function is "what is the likel
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13653,7 +13653,7 @@ $$<p>Remember that the idea behind the likelihood function is "what is the likel
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bernoulliSample1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -13705,7 +13705,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ths</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
@@ -13723,7 +13723,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -13796,7 +13796,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">arange</span>
@@ -13813,7 +13813,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -13853,7 +13853,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">smallBSample</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
@@ -13874,7 +13874,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tn</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">smallBSample</span><span class="p">)</span> <span class="c1"># what is tn</span>
@@ -13891,7 +13891,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[29]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -13917,7 +13917,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bernoulliSample0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># make sure we know about our samples</span>
@@ -13974,7 +13974,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">smallBSample1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
@@ -14041,7 +14041,7 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact</span>
@@ -14078,13 +14078,13 @@ If we observe [1] The likelihood of theta= 1.0  is  1.00000000000000
 
  
  
-<div id="b30773b9-281c-4607-82c4-1dea19d1b091"></div>
+<div id="1b225cd6-c940-4e07-8781-7e4e717cf1bd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#b30773b9-281c-4607-82c4-1dea19d1b091');
+var element = $('#1b225cd6-c940-4e07-8781-7e4e717cf1bd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "f9ab0ca17ec1496984e2789f92686bfe", "version_major": 2, "version_minor": 0}
+{"model_id": "f9c97e39bf024ee697391d4ed3b15dd5", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14118,7 +14118,7 @@ $$l_n(\theta) := log(L_n(\theta))$$<p>You will probably recall from pre-calculus
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">5.0</span>
@@ -14136,7 +14136,7 @@ $$l_n(\theta) := log(L_n(\theta))$$<p>You will probably recall from pre-calculus
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[35]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -14153,7 +14153,7 @@ $$l_n(\theta) := log(L_n(\theta))$$<p>You will probably recall from pre-calculus
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -14169,7 +14169,7 @@ $$l_n(\theta) := log(L_n(\theta))$$<p>You will probably recall from pre-calculus
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -14186,7 +14186,7 @@ $$l_n(\theta) := log(L_n(\theta))$$<p>You will probably recall from pre-calculus
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>log
@@ -14228,7 +14228,7 @@ $$l_n(\theta) := log(L_n(\theta))$$<p>You will probably recall from pre-calculus
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># log to base 10</span>
@@ -14244,7 +14244,7 @@ $$l_n(\theta) := log(L_n(\theta))$$<p>You will probably recall from pre-calculus
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[38]:</div>
+    <div class="prompt output_prompt">Out[23]:</div>
 
 
 
@@ -14286,7 +14286,7 @@ $$<p>Here we are using the fact that $\log(a^c) = c\log(a)$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact</span>
@@ -14296,7 +14296,7 @@ $$<p>Here we are using the fact that $\log(a^c) = c\log(a)$.</p>
         <span class="n">thisBSample</span> <span class="o">=</span> <span class="n">bernoulliSampleSecretTheta</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># make sample</span>
         <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">thisBSample</span><span class="p">)</span> <span class="c1"># what is n</span>
         <span class="n">tn</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">thisBSample</span><span class="p">)</span>
-        <span class="nb">print</span> <span class="s2">&quot;n = &quot;</span><span class="p">,</span> <span class="n">n</span> <span class="p">,</span> <span class="s2">&quot; and tn = &quot;</span><span class="p">,</span> <span class="n">tn</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;n = &quot;</span><span class="p">,</span> <span class="n">n</span> <span class="p">,</span> <span class="s2">&quot; and tn = &quot;</span><span class="p">,</span> <span class="n">tn</span><span class="p">)</span>
         <span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">arange</span>
         <span class="n">ths</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># get some values to plot against</span>
         <span class="n">liks</span> <span class="o">=</span> <span class="p">[</span><span class="n">likelihoodBernoulli</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">tn</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ths</span><span class="p">]</span>
@@ -14308,7 +14308,7 @@ $$<p>Here we are using the fact that $\log(a^c) = c\log(a)$.</p>
         <span class="n">p2</span> <span class="o">+=</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Log-likelihood function&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">logliks</span><span class="p">)</span><span class="o">*</span><span class="mf">0.8</span><span class="p">),</span> <span class="n">rgbcolor</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
         <span class="n">show</span><span class="p">(</span><span class="n">graphics_array</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">]),</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;n must be greater than 0&quot;</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;n must be greater than 0&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14324,14 +14324,21 @@ $$<p>Here we are using the fact that $\log(a^c) = c\log(a)$.</p>
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-39-8fc635c28900&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">8</span>
-<span class="ansi-red-fg">    print &#34;n = &#34;, n , &#34; and tn = &#34;, tn</span>
-               ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> Missing parentheses in call to &#39;print&#39;. Did you mean print(&#34;n = &#34;, n , &#34; and tn = &#34;, tn)?
-</pre>
+
+
+
+ 
+ 
+<div id="e27f8f50-ff74-4bf7-8d22-7a0539741d9a"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#e27f8f50-ff74-4bf7-8d22-7a0539741d9a');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "a2bd9599462f4808a2f752a17740edbc", "version_major": 2, "version_minor": 0}
+</script>
 </div>
+
 </div>
 
 </div>
@@ -14388,7 +14395,7 @@ $$<p>Now, let's look an another version of the interactive plot of the log-likel
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact</span>
@@ -14429,13 +14436,13 @@ $$<p>Now, let's look an another version of the interactive plot of the log-likel
 
  
  
-<div id="17c1e288-0150-4e16-a6b3-f5b3e98e0882"></div>
+<div id="879ce2a8-68c6-4dd1-abf0-43406c0ec295"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#17c1e288-0150-4e16-a6b3-f5b3e98e0882');
+var element = $('#879ce2a8-68c6-4dd1-abf0-43406c0ec295');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "5d1b23ee1d184c71ae4e96c92e5aee5e", "version_major": 2, "version_minor": 0}
+{"model_id": "a93b44cd6c384b528b1b1be56f11d7b3", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -14464,7 +14471,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># These lotto draws of the first ball from NZ Lotto was already downloaded and processed for you</span>
@@ -14527,7 +14534,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">listBallOne</span><span class="p">)</span>
@@ -14543,7 +14550,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[44]:</div>
+    <div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -14568,7 +14575,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bernoulliBallOneOdd</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">listBallOne</span><span class="p">]</span>
@@ -14590,7 +14597,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bernoulliBallOneOdd</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># find how many 1s there are in the list bernoulliBallOneOdd</span>
@@ -14606,7 +14613,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[46]:</div>
+    <div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -14623,7 +14630,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>list.count
@@ -14644,7 +14651,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">bernoulliBallOneOdd</span><span class="p">)</span>
@@ -14660,7 +14667,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[48]:</div>
+    <div class="prompt output_prompt">Out[31]:</div>
 
 
 
@@ -14689,7 +14696,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pylab</span>
@@ -14712,7 +14719,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">bernoulliBallOneOdd</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -14728,7 +14735,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[50]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -14745,7 +14752,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">csBernoulliBallOneOdd</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -14761,7 +14768,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[51]:</div>
+    <div class="prompt output_prompt">Out[34]:</div>
 
 
 
@@ -14786,7 +14793,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sampleSize</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1115</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -14807,7 +14814,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">relFreqsCsBernoulliBallOneOdd</span> <span class="o">=</span> <span class="p">[(</span> <span class="n">i</span><span class="p">,</span> <span class="n">ZZ</span><span class="p">(</span><span class="n">csBernoulliBallOneOdd</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">sampleSize</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span> \
@@ -14830,7 +14837,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="n">points</span><span class="p">(</span><span class="n">relFreqsCsBernoulliBallOneOdd</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
@@ -14875,7 +14882,7 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact</span>
@@ -14908,13 +14915,13 @@ $$X_1,X_2,\ldots,X_n \overset{IID}{\sim} Bernoulli(\theta^*), \ \text{where}, \ 
 
  
  
-<div id="59a66d5c-6af3-4b8e-9058-829bcb84ef91"></div>
+<div id="28c3eea8-b06a-4c09-a0e2-5c01f81be134"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#59a66d5c-6af3-4b8e-9058-829bcb84ef91');
+var element = $('#28c3eea8-b06a-4c09-a0e2-5c01f81be134');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "183f14e3b8d2459dace07ebfc55c4325", "version_major": 2, "version_minor": 0}
+{"model_id": "f02f8be7bcab4617aec97e85c52579d8", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
