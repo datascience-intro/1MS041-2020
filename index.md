@@ -20,6 +20,7 @@
 ### Assignments
 01. [Assignment 1](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_1.ipynb)
 02. [Assignment 2](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_2.ipynb)
+02. [Assignment 2 Solutino](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_2_prob_soln.ipynb)
 03. [Assignment 3](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_3.ipynb)
 
 ### Starting package
