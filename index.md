@@ -15,12 +15,16 @@
 10. [Convergence of Limits of Random Variables, Confidence Set Estimation and Testing](10.md)
 11. [Non-parametric Estimation and Testing](11.md)
 12. [Linear Regression](12.md)
-13. [TBA](13.md)
+13. [Markov Chains and Random Structures](13.md)
+13. [Supervised Learning & what is machine learning](14.md)
+13. [Supervised learning and Learning Theory](15.md)
+13. [High Dimensional geometry and probability](16.md)
+13. [TBA](17.md)
 
 ### Assignments
 01. [Assignment 1](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_1.ipynb)
 02. [Assignment 2](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_2.ipynb)
-02. [Assignment 2 Solutino](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_2_prob_soln.ipynb)
+02. [Assignment 2 Solution](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_2_prob_soln.ipynb)
 03. [Assignment 3](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_3.ipynb)
 
 ### Starting package
