@@ -13259,10 +13259,10 @@ $$<h3 id="The-algorithm">The algorithm<a class="anchor-link" href="#The-algorith
 
  
  
-<div id="c76f6820-1509-4efa-9cd4-07a801ef22af"></div>
+<div id="68427d03-ab95-49b5-8584-651d147d1f7f"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c76f6820-1509-4efa-9cd4-07a801ef22af');
+var element = $('#68427d03-ab95-49b5-8584-651d147d1f7f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "88c7c6d6067143399244c5b15ec3e316", "version_major": 2, "version_minor": 0}
@@ -13852,6 +13852,8 @@ This is clearly linearly separable as we can see in the following 3d plot</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>Remember the extra dimension that we always add to simplify notation. Therefore the full $\phi$ in the above examples is $\hat \phi(x) = (x_1,x_2,x_1^2+x_2^2,1)$.</p>
+</blockquote>
 <p>So if we transform the $x \to \phi(x)$ for some good transformation $\phi$ then our perceptron will try to solve
 $$
     w \cdot \phi(x_i)l_i &gt; 0
@@ -14527,7 +14529,7 @@ taking the complement event we get the result of our theorem.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace the XXX below with the number of training samples needed to satisfy the problem</span>
-<span class="n">N</span> <span class="o">=</span> <span class="n">XXX</span>
+<span class="n">N2</span> <span class="o">=</span> <span class="n">XXX</span>
 </pre></div>
 
     </div>
@@ -14547,12 +14549,12 @@ You may need to include and evaluate code snippets from lecture notebooks in cel
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># test that your answer is indeed a number by evaluating this cell after you replaced XXX above and evaluated it.</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="k">assert</span><span class="p">((</span><span class="nb">type</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="ow">is</span> <span class="n">Integer</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">))</span>
+    <span class="k">assert</span><span class="p">((</span><span class="nb">type</span><span class="p">(</span><span class="n">N2</span><span class="p">)</span> <span class="ow">is</span> <span class="n">Integer</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">N2</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your answer is an integer, hopefully it is correct.&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Try again! and make sure you are producing an integer of class Integer or int&quot;</span><span class="p">)</span>
@@ -14993,11 +14995,11 @@ Consider an instance space $X$ consisting of integers $1$ to $1000$ and a target
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace the XXX below with the number of training samples needed to satisfy the problem</span>
-<span class="n">N</span> <span class="o">=</span> <span class="n">XXX</span>
+<span class="n">N5</span> <span class="o">=</span> <span class="n">XXX</span>
 </pre></div>
 
     </div>
@@ -15017,10 +15019,10 @@ Consider an instance space $X$ consisting of integers $1$ to $1000$ and a target
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-16-1f46c17cf1e1&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-4-b9af76d6abd5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># ASSIGNMENT 4, PROBLEM 5, POINTS 1</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg"># Replace the XXX below with the number of training samples needed to satisfy the problem</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>N <span class="ansi-blue-fg">=</span> XXX
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>N5 <span class="ansi-blue-fg">=</span> XXX
 
 <span class="ansi-red-fg">NameError</span>: name &#39;XXX&#39; is not defined</pre>
 </div>
@@ -15042,12 +15044,12 @@ You may need to include and evaluate code snippets from lecture notebooks in cel
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># test that your answer is indeed a number by evaluating this cell after you replaced XXX above and evaluated it.</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="k">assert</span><span class="p">((</span><span class="nb">type</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="ow">is</span> <span class="n">Integer</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">))</span>
+    <span class="k">assert</span><span class="p">((</span><span class="nb">type</span><span class="p">(</span><span class="n">N5</span><span class="p">)</span> <span class="ow">is</span> <span class="n">Integer</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">N5</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your answer is an integer, hopefully it is correct.&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Try again! and make sure you are producing an integer of class Integer or int&quot;</span><span class="p">)</span>
