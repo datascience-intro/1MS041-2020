@@ -14836,10 +14836,10 @@ $$P\left (\left | |f(v)| - \sqrt{k} |v| \right |  \geq \epsilon \sqrt{k}|v| \rig
 
  
  
-<div id="0e278181-6722-4cb4-bb2b-ed3b718eaa8a"></div>
+<div id="650fde86-95cb-42e7-9bda-83b0d35781cd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0e278181-6722-4cb4-bb2b-ed3b718eaa8a');
+var element = $('#650fde86-95cb-42e7-9bda-83b0d35781cd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "4ef14d6c19a04507b1cc1cad87eceacd", "version_major": 2, "version_minor": 0}
@@ -14876,7 +14876,7 @@ each $(u_i)_j$ is N(0,1) and independent of each other, as such $u_i \cdot v$ is
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Johnson-Lindenstrauss-Lemma">Johnson-Lindenstrauss Lemma<a class="anchor-link" href="#Johnson-Lindenstrauss-Lemma">&#182;</a></h3><blockquote><p>For any $0 &lt; \epsilon &lt; 1$  and any integer $n$, let $k \geq \frac{3}{c\epsilon^2}$ where $c$ is as in the random projection theorem. For any set of $n$ points $\{v_1,\ldots,v_n\}$ in $\mathbb{R}^d$ then the random projection defined in the random projection theorem satisfies
+<h3 id="Johnson-Lindenstrauss-Lemma">Johnson-Lindenstrauss Lemma<a class="anchor-link" href="#Johnson-Lindenstrauss-Lemma">&#182;</a></h3><blockquote><p>For any $0 &lt; \epsilon &lt; 1$  and any integer $n$, let $k \geq \frac{3}{c\epsilon^2} \ln n$ where $c$ is as in the random projection theorem. For any set of $n$ points $\{v_1,\ldots,v_n\}$ in $\mathbb{R}^d$ then the random projection defined in the random projection theorem satisfies
 $$P((1-\epsilon) \sqrt{k} |v_i-v_j| \leq |f(v_i-v_j)| \leq (1+\epsilon) \sqrt{k} |v_i-v_j|: \forall i, j) \geq 1-\frac{3 }{2 n}$$</p>
 </blockquote>
 
@@ -14892,11 +14892,11 @@ $$
 $$
 There are ${n \choose 2} = n^2/2$ pairs to consider, so  using the union bound we get
 $$
-    P\left (\left | |f(v_i-v_j)| - \sqrt{k} |v_i-v_j| \right | &gt; \epsilon |v_i-v_j|: \forall i, j\right)  \leq \frac{3 n^2}{2} e^{-c k \epsilon^2}
+    P\left (\left | |f(v_i-v_j)| - \sqrt{k} |v_i-v_j| \right | &gt; \epsilon |v_i-v_j|: \exists i, j\right)  \leq \frac{3 n^2}{2} e^{-c k \epsilon^2}
 $$
 Choose $k \geq \frac{3}{c \epsilon^2}$ then
 $$
-    P\left (\left | |f(v_i-v_j)| - \sqrt{k} |v_i-v_j| \right | &gt; \epsilon |v_i-v_j|: \forall i, j\right)  \leq \frac{3 }{2 n}
+    P\left (\left | |f(v_i-v_j)| - \sqrt{k} |v_i-v_j| \right | &gt; \epsilon |v_i-v_j|: \exists i, j\right)  \leq \frac{3 }{2 n}
 $$
 which gives
 $$
