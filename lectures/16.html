@@ -14836,10 +14836,10 @@ $$P\left (\left | |f(v)| - \sqrt{k} |v| \right |  \geq \epsilon \sqrt{k}|v| \rig
 
  
  
-<div id="650fde86-95cb-42e7-9bda-83b0d35781cd"></div>
+<div id="cb344015-3603-4d6e-99b9-b3625ab0099d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#650fde86-95cb-42e7-9bda-83b0d35781cd');
+var element = $('#cb344015-3603-4d6e-99b9-b3625ab0099d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "4ef14d6c19a04507b1cc1cad87eceacd", "version_major": 2, "version_minor": 0}
@@ -14950,6 +14950,8 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>The goal of this problem is to implement your own random projection function, i.e. same as in the random projection theorem and Johnson Lindenstrauss. Below you will find a function template, as always fill in XXX.</p>
+<p>Some notes, the input will be a numpy array and the output should also be a numpy array. The format for the input is <code>(n_samples, d)</code> and the output should be of the form <code>(n_samples, k)</code>.</p>
 
 </div>
 </div>
@@ -15784,6 +15786,650 @@ You may need to include and evaluate code snippets from lecture notebooks in cel
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Assignment-5,-PROBLEM-2">Assignment 5, PROBLEM 2<a class="anchor-link" href="#Assignment-5,-PROBLEM-2">&#182;</a></h2><p>Maximum Points = 1</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Write a function that generates points from a unit ball in $d$ dimensions. The output should be a numpy array of shape <code>(n_samples,d)</code>. As always replace XXX with whatever makes sense.</p>
+<p>Hint, numpy has a function called power, <a href="https://numpy.org/doc/stable/reference/generated/numpy.power.html">https://numpy.org/doc/stable/reference/generated/numpy.power.html</a>
+also remember <code>numpy.linalg.norm</code> to calculate length of vectors.</p>
+<p>Another hint that might be useful, note that numpy has broadcasting rule in order to make sense of the multiplication between different size vectors. Say we would like to compute the product of a (10,10) vector and a (10,1) vector, in this case numpy will broadcast the second vector to (10,10) by compying the values along the second axis. However for this to work they both have to have the same number of dimensions, i.e. we cannot multiply (10,10) and (10,) we have to reshape the second vector to (10,1) for broadcasting to work).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[233]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do not rename the function below just replace what is XXX</span>
+<span class="k">def</span> <span class="nf">uniform_unit_ball</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">surface</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Generate n_samples uniform random samples from the unit ball in d-dimensions.</span>
+<span class="sd">    If surface==True generate only from the surface of the ball&#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span> <span class="o">==</span> <span class="n">Integer</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">),</span> <span class="s2">&quot;samples needs to be integer&quot;</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="n">Integer</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">),</span> <span class="s2">&quot;d needs to be integer&quot;</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">n_samples</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;Positive number of samples&quot;</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;Dimension needs to be greater than or equal to 1&quot;</span>
+    
+    <span class="n">XXX</span>
+    <span class="k">return</span> <span class="n">XXX</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h4 id="Local-Test-for-Assignment-5,-PROBLEM-2">Local Test for Assignment 5, PROBLEM 2<a class="anchor-link" href="#Local-Test-for-Assignment-5,-PROBLEM-2">&#182;</a></h4><p>Evaluate cell below to make sure your answer is valid.                         You <strong>should not</strong> modify anything in the cell below when evaluating it to do a local test of                         your solution.
+You may need to include and evaluate code snippets from lecture notebooks in cells above to make the local test work correctly sometimes (see error messages for clues). This is meant to help you become efficient at recalling materials covered in lectures that relate to this problem. Such local tests will generally not be available in the exam.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[252]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># test that your answer is indeed a number by evaluating this cell after you replaced XXX above and evaluated it.</span>
+
+<span class="c1"># Use the below visual verification in two dimension to see if you generate uniform samples</span>
+<span class="c1"># from the 2d ball</span>
+
+<span class="n">unif_ball</span> <span class="o">=</span> <span class="n">uniform_unit_ball</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">surface</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#Change to true if you want to see if your code works</span>
+<span class="n">sage_histogram2d</span><span class="p">(</span><span class="n">unif_ball</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">unif_ball</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+
+<iframe srcdoc="<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset=&quot;utf-8&quot;>
+<meta name=viewport content=&quot;width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;>
+<style>
+
+    body { margin: 0px; overflow: hidden; }
+
+    #menu-container { position: absolute; bottom: 30px; right: 40px; cursor: default; }
+
+    #menu-message { position: absolute; bottom: 0px; right: 0px; white-space: nowrap;
+                    display: none; background-color: #F5F5F5; padding: 10px; }
+
+    #menu-content { position: absolute; bottom: 0px; right: 0px;
+                    display: none; background-color: #F5F5F5; border-bottom: 1px solid black;
+                    border-right: 1px solid black; border-left: 1px solid black; }
+
+    #menu-content div { border-top: 1px solid black; padding: 10px; white-space: nowrap; }
+
+    #menu-content div:hover { background-color: #FEFEFE;; }
+  
+</style>
+</head>
+
+<body>
+
+<script src=&quot;/nbextensions/threejs/build/three.min.js&quot;></script>
+<script src=&quot;/nbextensions/threejs/examples/js/controls/OrbitControls.js&quot;></script>
+<script>
+  if ( !window.THREE ) document.write(' \
+<script src=&quot;https://cdn.jsdelivr.net/gh/mrdoob/three.js@r110/build/three.min.js&quot;><\/script> \
+<script src=&quot;https://cdn.jsdelivr.net/gh/mrdoob/three.js@r110/examples/js/controls/OrbitControls.js&quot;><\/script> \
+            ');
+</script>
+        
+<script>
+
+    var scene = new THREE.Scene();
+
+    var renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor( 0xffffff, 1 );
+    document.body.appendChild( renderer.domElement );
+
+    var options = {&quot;aspectRatio&quot;: [1.0, 1.0, 1.0], &quot;axes&quot;: false, &quot;axesLabels&quot;: [&quot;x&quot;, &quot;y&quot;, &quot;z&quot;], &quot;decimals&quot;: 2, &quot;frame&quot;: true, &quot;projection&quot;: &quot;perspective&quot;};
+
+    // When animations are supported by the viewer, the value 'false'
+    // will be replaced with an option set in Python by the user
+    var animate = false; // options.animate;
+
+    var b = [{&quot;x&quot;:-0.9978296806862145, &quot;y&quot;:-0.9997089469009036, &quot;z&quot;:0.0}, {&quot;x&quot;:0.9981529986041041, &quot;y&quot;:0.9949403136005165, &quot;z&quot;:0.38178624658775645}]; // bounds
+
+    if ( b[0].x === b[1].x ) {
+        b[0].x -= 1;
+        b[1].x += 1;
+    }
+    if ( b[0].y === b[1].y ) {
+        b[0].y -= 1;
+        b[1].y += 1;
+    }
+    if ( b[0].z === b[1].z ) {
+        b[0].z -= 1;
+        b[1].z += 1;
+    }
+
+    var rRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var xRange = b[1].x - b[0].x;
+    var yRange = b[1].y - b[0].y;
+    var zRange = b[1].z - b[0].z;
+
+    var ar = options.aspectRatio;
+    var a = [ ar[0], ar[1], ar[2] ]; // aspect multipliers
+    var autoAspect = 2.5;
+    if ( zRange > autoAspect * rRange && a[2] === 1 ) a[2] = autoAspect * rRange / zRange;
+
+    // Distance from (xMid,yMid,zMid) to any corner of the bounding box, after applying aspectRatio
+    var midToCorner = Math.sqrt( a[0]*a[0]*xRange*xRange + a[1]*a[1]*yRange*yRange + a[2]*a[2]*zRange*zRange ) / 2;
+
+    var xMid = ( b[0].x + b[1].x ) / 2;
+    var yMid = ( b[0].y + b[1].y ) / 2;
+    var zMid = ( b[0].z + b[1].z ) / 2;
+
+    var box = new THREE.Geometry();
+    box.vertices.push( new THREE.Vector3( a[0]*b[0].x, a[1]*b[0].y, a[2]*b[0].z ) );
+    box.vertices.push( new THREE.Vector3( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) );
+    var boxMesh = new THREE.Line( box );
+    if ( options.frame ) scene.add( new THREE.BoxHelper( boxMesh, 'black' ) );
+
+    if ( options.axesLabels ) {
+
+        var d = options.decimals; // decimals
+        var offsetRatio = 0.1;
+        var al = options.axesLabels;
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var xm = xMid.toFixed(d);
+        if ( /^-0.?0*$/.test(xm) ) xm = xm.substr(1);
+        addLabel( al[0] + '=' + xm, a[0]*xMid, a[1]*b[1].y+offset, a[2]*b[0].z );
+        addLabel( ( b[0].x ).toFixed(d), a[0]*b[0].x, a[1]*b[1].y+offset, a[2]*b[0].z );
+        addLabel( ( b[1].x ).toFixed(d), a[0]*b[1].x, a[1]*b[1].y+offset, a[2]*b[0].z );
+
+        var offset = offsetRatio * a[0]*( b[1].x - b[0].x );
+        var ym = yMid.toFixed(d);
+        if ( /^-0.?0*$/.test(ym) ) ym = ym.substr(1);
+        addLabel( al[1] + '=' + ym, a[0]*b[1].x+offset, a[1]*yMid, a[2]*b[0].z );
+        addLabel( ( b[0].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[0].y, a[2]*b[0].z );
+        addLabel( ( b[1].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[1].y, a[2]*b[0].z );
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var zm = zMid.toFixed(d);
+        if ( /^-0.?0*$/.test(zm) ) zm = zm.substr(1);
+        addLabel( al[2] + '=' + zm, a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*zMid );
+        addLabel( ( b[0].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[0].z );
+        addLabel( ( b[1].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[1].z );
+
+    }
+
+    function addLabel( text, x, y, z, color='black', fontsize=14  ) {
+
+        var canvas = document.createElement( 'canvas' );
+        var pixelRatio = Math.round( window.devicePixelRatio );
+        canvas.width = 128 * pixelRatio;
+        canvas.height = 32 * pixelRatio; // powers of two
+        canvas.style.width = '128px';
+        canvas.style.height = '32px';
+
+        var context = canvas.getContext( '2d' );
+        context.scale( pixelRatio, pixelRatio );
+        context.fillStyle = color;
+        context.font = fontsize + 'px monospace';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText( text, canvas.width/2/pixelRatio, canvas.height/2/pixelRatio );
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var sprite = new THREE.Sprite( new THREE.SpriteMaterial( { map: texture } ) );
+        sprite.position.set( x, y, z );
+
+        // Set the initial scale based on plot size to accomodate orthographic projection.
+        // For other projections, the scale will get reset each frame based on camera distance.
+        var scale = midToCorner/2;
+        sprite.scale.set( scale, scale*.25, 1 ); // ratio of canvas width to height
+
+        scene.add( sprite );
+
+    }
+
+    if ( options.axes ) scene.add( new THREE.AxesHelper( Math.min( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) ) );
+
+    var camera = createCamera();
+    camera.up.set( 0, 0, 1 );
+    camera.position.set( a[0]*(xMid+xRange), a[1]*(yMid+yRange), a[2]*(zMid+zRange) );
+
+    function createCamera() {
+
+        var aspect = window.innerWidth / window.innerHeight;
+
+        if ( options.projection === 'orthographic' ) {
+            var camera = new THREE.OrthographicCamera( -1, 1, 1, -1, -1000, 1000 );
+            updateCameraAspect( camera, aspect );
+            return camera;
+        }
+
+        return new THREE.PerspectiveCamera( 45, aspect, 0.1, 1000 );
+
+    }
+
+    function updateCameraAspect( camera, aspect ) {
+
+        if ( camera.isPerspectiveCamera ) {
+            camera.aspect = aspect;
+        } else if ( camera.isOrthographicCamera ) {
+            // Fit the camera frustum to the bounding box's diagonal so that the entire plot fits
+            // within at the default zoom level and camera position.
+            if ( aspect > 1 ) { // Wide window
+                camera.top = midToCorner;
+                camera.right = midToCorner * aspect;
+            } else { // Tall or square window
+                camera.top = midToCorner / aspect;
+                camera.right = midToCorner;
+            }
+            camera.bottom = -camera.top;
+            camera.left = -camera.right;
+        }
+
+        camera.updateProjectionMatrix();
+
+    }
+
+    var lights = [{&quot;x&quot;:-5, &quot;y&quot;:3, &quot;z&quot;:0, &quot;color&quot;:&quot;#7f7f7f&quot;, &quot;parent&quot;:&quot;camera&quot;}];
+    for ( var i=0 ; i < lights.length ; i++ ) {
+        var light = new THREE.DirectionalLight( lights[i].color, 1 );
+        light.position.set( a[0]*lights[i].x, a[1]*lights[i].y, a[2]*lights[i].z );
+        if ( lights[i].parent === 'camera' ) {
+            light.target.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+            scene.add( light.target );
+            camera.add( light );
+        } else scene.add( light );
+    }
+    scene.add( camera );
+
+    var ambient = {&quot;color&quot;:&quot;#7f7f7f&quot;};
+    scene.add( new THREE.AmbientLight( ambient.color, 1 ) );
+
+    var controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls.target.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+    controls.addEventListener( 'change', function() { if ( !animate ) render(); } );
+
+    window.addEventListener( 'resize', function() {
+        
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        updateCameraAspect( camera, window.innerWidth / window.innerHeight );
+        if ( !animate ) render();
+        
+    } );
+
+    var texts = [];
+    for ( var i=0 ; i < texts.length ; i++ )
+        addLabel( texts[i].text, a[0]*texts[i].x, a[1]*texts[i].y, a[2]*texts[i].z, texts[i].color );
+
+    var points = [];
+    for ( var i=0 ; i < points.length ; i++ ) addPoint( points[i] );
+
+    function addPoint( json ) {
+
+        var geometry = new THREE.Geometry();
+        var v = json.point;
+        geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+
+        var canvas = document.createElement( 'canvas' );
+        canvas.width = 128;
+        canvas.height = 128;
+
+        var context = canvas.getContext( '2d' );
+        context.arc( 64, 64, 64, 0, 2 * Math.PI );
+        context.fillStyle = json.color;
+        context.fill();
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var transparent = json.opacity < 1 ? true : false;
+        var size = camera.isOrthographicCamera ? json.size : json.size/100;
+        var material = new THREE.PointsMaterial( { size: size, map: texture,
+                                                   transparent: transparent, opacity: json.opacity,
+                                                   alphaTest: .1 } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Points( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        scene.add( mesh );
+
+    }
+
+    var lines = [];
+    for ( var i=0 ; i < lines.length ; i++ ) addLine( lines[i] );
+
+    function addLine( json ) {
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i < json.points.length ; i++ ) {
+            var v = json.points[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+        }
+
+        var transparent = json.opacity < 1 ? true : false;
+        var material = new THREE.LineBasicMaterial( { color: json.color, linewidth: json.linewidth,
+                                                      transparent: transparent, opacity: json.opacity } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Line( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        scene.add( mesh );
+
+    }
+
+    var surfaces = [{&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.10800531975837839}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.10800531975837839}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.10800531975837839}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.10800531975837839}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.23359290087277187}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.23359290087277187}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.23359290087277187}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.23359290087277187}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3014101946745444}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3014101946745444}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.3014101946745444}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.3014101946745444}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.32150420765284715}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.32150420765284715}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.32150420765284715}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.32150420765284715}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.11554057462524202}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.11554057462524202}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.11554057462524202}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.11554057462524202}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.9997089469009036, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.29889844305225666}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.29889844305225666}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.29889844305225666}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.29889844305225666}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.3089454495414082}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.3089454495414082}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3089454495414082}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3089454495414082}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.3667157368540292}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.3667157368540292}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3667157368540292}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3667157368540292}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.32903946251971095}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.32903946251971095}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.32903946251971095}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.32903946251971095}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.3139689527859839}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.3139689527859839}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3139689527859839}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3139689527859839}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.3466217238757262}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.3466217238757262}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3466217238757262}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.3466217238757262}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.21601063951675692}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.21601063951675692}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.21601063951675692}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.21601063951675692}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.6007790948006196, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.8002440208507616, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.09544656164693904}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.09544656164693904}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.09544656164693904}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.09544656164693904}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3139689527859835}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3139689527859835}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.3139689527859835}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.3139689527859835}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.29387493980768076}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.29387493980768076}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.29387493980768076}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.29387493980768076}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.29638669142996865}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.29638669142996865}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.29638669142996865}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.29638669142996865}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.2662456719625142}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.2662456719625142}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.2662456719625142}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.2662456719625142}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3164807044082714}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3164807044082714}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.3164807044082714}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.3164807044082714}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.33406296576428673}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.33406296576428673}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.33406296576428673}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.33406296576428673}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.31145720116369585}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.31145720116369585}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.31145720116369585}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.31145720116369585}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3415982206311503}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3415982206311503}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.3415982206311503}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.3415982206311503}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.08037605191321183}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.08037605191321183}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.08037605191321183}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.08037605191321183}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.6007790948006195, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.2235458943836204}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.26875742358480187}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.26875742358480187}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.26875742358480187}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.26875742358480187}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.2813161816962414}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.2813161816962414}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.2813161816962414}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.2813161816962414}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3315512141419988}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3315512141419988}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3315512141419988}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3315512141419988}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.33908646900886236}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.33908646900886236}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.33908646900886236}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.33908646900886236}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3340629657642865}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3340629657642865}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3340629657642865}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3340629657642865}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.29136318818539286}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.29136318818539286}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.29136318818539286}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.29136318818539286}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.27629267845166566}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.27629267845166566}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.27629267845166566}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.27629267845166566}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3064336979191201}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3064336979191201}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3064336979191201}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.3064336979191201}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.2662456719625142}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.2662456719625142}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.2662456719625142}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.2662456719625142}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.40131416875047754, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.33406296576428673}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.33406296576428673}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.33406296576428673}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.33406296576428673}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.324015959275135}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.324015959275135}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.324015959275135}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.324015959275135}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.27629267845166566}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.27629267845166566}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.27629267845166566}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.27629267845166566}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.3164807044082716}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.3164807044082716}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3164807044082716}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3164807044082716}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.3315512141419988}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.3315512141419988}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3315512141419988}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3315512141419988}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.2938749398076806}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.2938749398076806}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.2938749398076806}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.2938749398076806}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.32652771089742305}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.32652771089742305}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.32652771089742305}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.32652771089742305}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.3189924560305594}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.3189924560305594}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3189924560305594}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3189924560305594}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.3767627433431805}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.3767627433431805}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3767627433431805}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.3767627433431805}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.26373392034022636}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.26373392034022636}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.26373392034022636}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.26373392034022636}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.0023843166501935353, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.20184924270033555, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.3441099722534383}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.3441099722534383}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.3441099722534383}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.3441099722534383}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.2838279333185293}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.2838279333185293}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.2838279333185293}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.2838279333185293}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.3189924560305596}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.3189924560305596}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.3189924560305596}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.3189924560305596}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.2938749398076809}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.2938749398076809}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.2938749398076809}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.2938749398076809}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.2888514365631052}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.2888514365631052}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.2888514365631052}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.2888514365631052}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.2863396849408172}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.2863396849408172}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.2863396849408172}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.2863396849408172}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.32150420765284754}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.32150420765284754}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.32150420765284754}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.32150420765284754}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.38178624658775645}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.38178624658775645}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.38178624658775645}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.38178624658775645}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.19708060939994845, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: -0.002384316650193563, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.23610465249505966}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.23610465249505966}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.23610465249505966}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.23610465249505966}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3742509917208922}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3742509917208922}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.3742509917208922}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.3742509917208922}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.28131618169624123}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.28131618169624123}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.28131618169624123}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.28131618169624123}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3164807044082714}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3164807044082714}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.3164807044082714}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.3164807044082714}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.30392194629683206}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.30392194629683206}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.30392194629683206}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.30392194629683206}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3340629657642863}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3340629657642863}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.3340629657642863}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.3340629657642863}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3591804819871652}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3591804819871652}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.3591804819871652}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.3591804819871652}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.361692233609453}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.361692233609453}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.361692233609453}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.361692233609453}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.30643369791911995}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.30643369791911995}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.30643369791911995}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.30643369791911995}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.2461516589842111}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.2461516589842111}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.2461516589842111}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.2461516589842111}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.19708060939994854, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.12307582949210569}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.12307582949210569}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.12307582949210569}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.12307582949210569}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571827, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9978296806862145, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.34662172387572604}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.34662172387572604}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.34662172387572604}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.34662172387572604}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.33908646900886263}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.29638669142996876}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.29638669142996876}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.29638669142996876}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.29638669142996876}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.30643369791912034}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.30643369791912034}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.30643369791912034}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.30643369791912034}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3189924560305594}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3189924560305594}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3189924560305594}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3189924560305594}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.28382793331852946}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.28382793331852946}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.28382793331852946}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.28382793331852946}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3089454495414082}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3089454495414082}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3089454495414082}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3089454495414082}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3039219462968324}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3039219462968324}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3039219462968324}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.3039219462968324}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.12809933273668145}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.12809933273668145}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.12809933273668145}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.12809933273668145}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9981529986041041, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.3965455354500905, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.1758226135601509}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.1758226135601509}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.1758226135601509}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.1758226135601509}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7982314127571826, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.33406296576428685}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.33406296576428685}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.33406296576428685}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.33406296576428685}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3039219462968324}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3039219462968324}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3039219462968324}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3039219462968324}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3189924560305596}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3189924560305596}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3189924560305596}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3189924560305596}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3265277108974231}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3265277108974231}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3265277108974231}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3265277108974231}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3491334754980141}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3491334754980141}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3491334754980141}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.3491334754980141}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.29136318818539303}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.29136318818539303}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.29136318818539303}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.29136318818539303}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.20596363302760545}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.20596363302760545}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.20596363302760545}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.20596363302760545}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7985547306750723, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460405, &quot;y&quot;: 0.5960104615002325, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.10047006489151468}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.10047006489151468}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.10047006489151468}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.10047006489151468}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5986331448281508, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.2134988878944687}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.2134988878944687}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.2134988878944687}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.2134988878944687}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3990348768991189, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.32150420765284693}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.32150420765284693}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.32150420765284693}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.32150420765284693}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894490467, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.19943660897008697, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.3340629657642861}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.3340629657642861}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3340629657642861}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.3340629657642861}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.1997599268879768, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.00016165895894493243, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.2612221687179382}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.2612221687179382}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.2612221687179382}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.2612221687179382}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.3993581948170086, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.19975992688797672, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}, {&quot;vertices&quot;: [{&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.07032904542406028}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.07032904542406028}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.07032904542406028}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.07032904542406028}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.9949403136005165, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5989564627460406, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.39935819481700874, &quot;y&quot;: 0.7954753875503745, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2, 3], [0, 4, 5, 1], [0, 3, 6, 4], [5, 4, 6, 7], [6, 3, 2, 7], [2, 1, 5, 7]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0}];
+    for ( var i=0 ; i < surfaces.length ; i++ ) addSurface( surfaces[i] );
+
+    function addSurface( json ) {
+
+        var useFaceColors = 'faceColors' in json ? true : false;
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i < json.vertices.length ; i++ ) {
+            var v = json.vertices[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v.x, a[1]*v.y, a[2]*v.z ) );
+        }
+        for ( var i=0 ; i < json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j < f.length - 2 ; j++ ) {
+                var face = new THREE.Face3( f[0], f[j+1], f[j+2] );
+                if ( useFaceColors ) face.color.set( json.faceColors[i] );
+                geometry.faces.push( face );
+            }
+        }
+        geometry.computeVertexNormals();
+
+        var side = json.singleSide ? THREE.FrontSide : THREE.DoubleSide;
+        var transparent = json.opacity < 1 ? true : false;
+
+        var material = new THREE.MeshPhongMaterial( { side: side,
+                                     color: useFaceColors ? 'white' : json.color,
+                                     vertexColors: useFaceColors ? THREE.FaceColors : THREE.NoColors,
+                                     transparent: transparent, opacity: json.opacity,
+                                     shininess: 20, flatShading: json.useFlatShading } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Mesh( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        if ( transparent && json.renderOrder ) mesh.renderOrder = json.renderOrder;
+        scene.add( mesh );
+
+        if ( json.showMeshGrid ) {
+
+            var geometry = new THREE.Geometry();
+
+            for ( var i=0 ; i < json.faces.length ; i++ ) {
+                var f = json.faces[i];
+                for ( var j=0 ; j < f.length ; j++ ) {
+                    var k = j === f.length-1 ? 0 : j+1;
+                    var v1 = json.vertices[f[j]];
+                    var v2 = json.vertices[f[k]];
+                    // vertices in opposite directions on neighboring faces
+                    var nudge = f[j] < f[k] ? .0005*zRange : -.0005*zRange;
+                    geometry.vertices.push( new THREE.Vector3( a[0]*v1.x, a[1]*v1.y, a[2]*(v1.z+nudge) ) );
+                    geometry.vertices.push( new THREE.Vector3( a[0]*v2.x, a[1]*v2.y, a[2]*(v2.z+nudge) ) );
+                }
+            }
+
+            var material = new THREE.LineBasicMaterial( { color: 'black', linewidth: 1 } );
+
+            var c = new THREE.Vector3();
+            geometry.computeBoundingBox();
+            geometry.boundingBox.getCenter( c );
+            geometry.translate( -c.x, -c.y, -c.z );
+
+            var mesh = new THREE.LineSegments( geometry, material );
+            mesh.position.set( c.x, c.y, c.z );
+            scene.add( mesh );
+
+        }
+
+    }
+
+    var scratch = new THREE.Vector3();
+
+    function render() {
+
+        if ( animate ) requestAnimationFrame( render );
+        renderer.render( scene, camera );
+
+        // Resize text based on distance from camera.
+        // Not neccessary for orthographic due to the nature of the projection (preserves sizes).
+        if ( !camera.isOrthographicCamera ) {
+            for ( var i=0 ; i < scene.children.length ; i++ ) {
+                if ( scene.children[i].type === 'Sprite' ) {
+                    var sprite = scene.children[i];
+                    var adjust = scratch.addVectors( sprite.position, scene.position )
+                                    .sub( camera.position ).length() / 5;
+                    sprite.scale.set( adjust, .25*adjust, 1 ); // ratio of canvas width to height
+                }
+            }
+        }
+    }
+    
+    render();
+    controls.update();
+    if ( !animate ) render();
+
+
+    // menu functions
+
+    function toggleMenu() {
+
+        var m = document.getElementById( 'menu-content' );
+        if ( m.style.display === 'block' ) m.style.display = 'none'
+        else m.style.display = 'block';
+
+    }
+
+
+    function saveAsPNG() {
+
+        var a = document.body.appendChild( document.createElement( 'a' ) );
+        a.href = renderer.domElement.toDataURL( 'image/png' );
+        a.download = 'screenshot';
+        a.click();
+
+    }
+
+    function saveAsHTML() {
+
+        toggleMenu(); // otherwise visible in output
+        event.stopPropagation();
+
+        var blob = new Blob( [ '<!DOCTYPE html>\n' + document.documentElement.outerHTML ] );
+        var a = document.body.appendChild( document.createElement( 'a' ) );
+        a.href = window.URL.createObjectURL( blob );
+        a.download = 'graphic.html';
+        a.click();
+
+    }
+
+    function getViewpoint() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var v = camera.quaternion.inverse();
+        var r = Math.sqrt( v.x*v.x + v.y*v.y + v.z*v.z );
+        var axis = [ roundTo( v.x / r, 4 ), roundTo( v.y / r, 4 ), roundTo( v.z / r, 4 ) ];
+        var angle = roundTo( 2 * Math.atan2( r, v.w ) * 180 / Math.PI, 2 );
+
+        var textArea = document.createElement( 'textarea' );
+        textArea.textContent = JSON.stringify( axis ) + ',' + angle;
+        textArea.style.csstext = 'position: absolute; top: -100%';
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( 'copy' );
+
+        var m = document.getElementById( 'menu-message' );
+        m.innerHTML = 'Viewpoint copied to clipboard';
+        m.style.display = 'block';
+        setTimeout( function() { m.style.display = 'none'; }, 2000 );
+
+    }
+
+</script>
+
+<div id=&quot;menu-container&quot; onclick=&quot;toggleMenu()&quot;>&#x24d8;
+<div id=&quot;menu-message&quot;></div>
+<div id=&quot;menu-content&quot;>
+<div onclick=&quot;saveAsPNG()&quot;>Save as PNG</div>
+<div onclick=&quot;saveAsHTML()&quot;>Save as HTML</div>
+<div onclick=&quot;getViewpoint()&quot;>Get Viewpoint</div>
+<div>Close Menu</div>
+</div></div>
+
+</body>
+</html>
+"
+        width="100%"
+        height="400"
+        style="border: 0;">
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Assignment-5,-PROBLEM-3">Assignment 5, PROBLEM 3<a class="anchor-link" href="#Assignment-5,-PROBLEM-3">&#182;</a></h2><p>Maximum Points = 1</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Generate 200 points from the surface of the unit ball in 50 dimensions (use your solution from problem 2).</li>
+<li>Generate a few random lines through the origin and plot the distribution of points on each line.</li>
+<li>What does your result from 2 say about where the surface area is concentrated relative to each line</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[253]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dont edit the below array, use the index corresponding to the correct answer</span>
+<span class="n">problem3_multiple_choice</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;On the north and south pole according to the line&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;Uniformly distributed over [-1,1]&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;Around the equator orthogonal to the line&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;This depends on the line, we get a different distribution each time&#39;</span><span class="p">]</span>
+
+<span class="n">problem3_answer</span> <span class="o">=</span> <span class="n">problem3_multiple_choice</span><span class="p">[</span><span class="n">XXX</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-253-70fd5321cda7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>                             &#39;This depends on the line, we get a different distribution each time&#39;]
+<span class="ansi-green-intense-fg ansi-bold">      7</span> 
+<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>problem3_answer <span class="ansi-blue-fg">=</span> problem3_multiple_choice<span class="ansi-blue-fg">[</span>XXX<span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;XXX&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h4 id="Local-Test-for-Assignment-5,-PROBLEM-3">Local Test for Assignment 5, PROBLEM 3<a class="anchor-link" href="#Local-Test-for-Assignment-5,-PROBLEM-3">&#182;</a></h4><p>Evaluate cell below to make sure your answer is valid.                         You <strong>should not</strong> modify anything in the cell below when evaluating it to do a local test of                         your solution.
+You may need to include and evaluate code snippets from lecture notebooks in cells above to make the local test work correctly sometimes (see error messages for clues). This is meant to help you become efficient at recalling materials covered in lectures that relate to this problem. Such local tests will generally not be available in the exam.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[257]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># test that your answer is indeed a number by evaluating this cell after you replaced XXX above and evaluated it.</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">problem3_answer</span> <span class="ow">in</span> <span class="n">problem3_multiple_choice</span><span class="p">),</span> <span class="s2">&quot;Please select on of the answers&quot;</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
