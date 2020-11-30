@@ -14064,7 +14064,7 @@ $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h2 id="Assignment-5,-PROBLEM-5">Assignment 5, PROBLEM 5<a class="anchor-link" href="#Assignment-5,-PROBLEM-5">&#182;</a></h2><p>Maximum Points = 1</p>
+<h2 id="Assignment-5,-PROBLEM-5">Assignment 5, PROBLEM 5<a class="anchor-link" href="#Assignment-5,-PROBLEM-5">&#182;</a></h2><p>Maximum Points = 3</p>
 
 </div>
 </div>
@@ -14774,6 +14774,513 @@ Lets try it out</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Another-example-on-compressing-data,-building-a-classifier">Another example on compressing data, building a classifier<a class="anchor-link" href="#Another-example-on-compressing-data,-building-a-classifier">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[166]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/leukemia.csv&#39;</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">header</span><span class="o">=</span><span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">row</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+        <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;ALL&#39;</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">features</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># https://github.com/mavaladezt/kNN-from-Scratch</span>
+
+<span class="k">def</span> <span class="nf">knn_distances</span><span class="p">(</span><span class="n">xTrain</span><span class="p">,</span><span class="n">xTest</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the k nearest neighbors of xTest in xTrain.</span>
+<span class="sd">    Input:</span>
+<span class="sd">    xTrain = n x d matrix. n=rows and d=features</span>
+<span class="sd">    xTest = m x d matrix. m=rows and d=features (same amount of features as xTrain)</span>
+<span class="sd">    k = number of nearest neighbors to be found</span>
+<span class="sd">    Output:</span>
+<span class="sd">    dists = distances between all xTrain and all XTest points. Size of n x m</span>
+<span class="sd">    indices = k x m matrix with the indices of the yTrain labels that represent the point</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#the following formula calculates the Euclidean distances.</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">xTrain</span><span class="nd">@xTest</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">xTest</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">xTrain</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="c1">#because of float precision, some small numbers can become negatives. Need to be replace with 0.</span>
+    <span class="n">distances</span><span class="p">[</span><span class="n">distances</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="n">distances</span><span class="o">**.</span><span class="mi">5</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">#get indices of sorted items</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#distances sorted in axis 0</span>
+    <span class="c1">#returning the top-k closest distances.</span>
+    <span class="k">return</span> <span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">k</span><span class="p">,:],</span> <span class="n">distances</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">k</span><span class="p">,:]</span>
+
+<span class="k">def</span> <span class="nf">knn_predictions</span><span class="p">(</span><span class="n">xTrain</span><span class="p">,</span><span class="n">yTrain</span><span class="p">,</span><span class="n">xTest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Uses xTrain and yTrain to predict xTest.</span>
+<span class="sd">    Input:</span>
+<span class="sd">    xTrain = n x d matrix. n=rows and d=features</span>
+<span class="sd">    yTrain = n x 1 array. n=rows with label value</span>
+<span class="sd">    xTest = m x d matrix. m=rows and d=features (same amount of features as xTrain)</span>
+<span class="sd">    k = number of nearest neighbors to be found</span>
+<span class="sd">    Output:</span>
+<span class="sd">    predictions = predicted labels, ie preds(i) is the predicted label of xTest(i,:)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">xTest</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">xTest</span> <span class="o">=</span> <span class="n">xTrain</span>
+        
+    <span class="n">indices</span><span class="p">,</span> <span class="n">distances</span> <span class="o">=</span> <span class="n">knn_distances</span><span class="p">(</span><span class="n">xTrain</span><span class="p">,</span><span class="n">xTest</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">yTrain</span> <span class="o">=</span> <span class="n">yTrain</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">rows</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">indices</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">columns</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+            <span class="n">cell</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yTrain</span><span class="p">[</span><span class="n">cell</span><span class="p">])</span>
+        <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="n">temp</span><span class="o">.</span><span class="n">count</span><span class="p">))</span> <span class="c1">#this is the key function, brings the mode value</span>
+    <span class="n">predictions</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">predictions</span>
+
+<span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span><span class="n">true_values</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">prediction</span> <span class="o">==</span> <span class="n">true_values</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[167]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">score</span><span class="p">(</span><span class="n">knn_predictions</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[167]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.9583333333333334</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[279]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">pca_leukemia</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+<span class="n">pca_leukemia</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">X_leukemia_project</span> <span class="o">=</span> <span class="n">pca_leukemia</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Number of data_points: 72, number of features: 7129, Number of components: 2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[280]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">score</span><span class="p">(</span><span class="n">knn_predictions</span><span class="p">(</span><span class="n">X_leukemia_project</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[280]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.9583333333333334</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[281]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">standardScaler</span><span class="p">(</span><span class="n">X_in</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Takes an array of shape (n_samples,n_features) and centers and normalizes the data&#39;&#39;&#39;</span>
+    <span class="n">X_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_in</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X_in</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X_in</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X_out</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]):</span>
+    <span class="n">X_leukemia_project_rescale</span> <span class="o">=</span> <span class="n">standardScaler</span><span class="p">(</span><span class="n">X_leukemia_project</span><span class="p">)</span>
+    <span class="n">class0</span> <span class="o">=</span> <span class="n">X_leukemia_project_rescale</span><span class="p">[</span><span class="n">Y</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">class1</span> <span class="o">=</span> <span class="n">X_leukemia_project_rescale</span><span class="p">[</span><span class="n">Y</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">P</span><span class="o">=</span><span class="n">points</span><span class="p">(</span><span class="n">class0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">P</span><span class="o">+=</span><span class="n">points</span><span class="p">(</span><span class="n">class1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">P</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From the above plot, it should be possible to use logistic regression to solve this problem</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[287]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pca_leukemia_2d</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pca_leukemia_2d</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">X_leukemia_project_2d</span> <span class="o">=</span> <span class="n">standardScaler</span><span class="p">(</span><span class="n">pca_leukemia_2d</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Number of data_points: 72, number of features: 7129, Number of components: 2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[377]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+
+<span class="c1"># define the objective/cost/loss function we want to minimise</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">Y</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_leukemia_project_2d</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])))))</span>
+
+<span class="c1"># multi-dimensional optimisation is syntactically similar to 1D, </span>
+<span class="c1"># but we are using Gradient and Hessian information from numerical evaluation of f to </span>
+<span class="c1"># iteratively improve the solution along the steepest direction, etc. </span>
+<span class="c1"># It &#39;LBFGS&#39; method you will see in scientific computing</span>
+<span class="n">parameter_bounding_box</span><span class="o">=</span><span class="p">((</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span> <span class="c1"># specify the constraints for each parameter</span>
+<span class="n">initial_arguments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="c1"># point in 2D to initialise the minimize algorithm</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">initial_arguments</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">parameter_bounding_box</span><span class="p">,)</span> <span class="c1"># just call the minimize method!</span>
+<span class="n">result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[377]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>      fun: 12.343253309094855
+ hess_inv: &lt;3x3 LbfgsInvHessProduct with dtype=float64&gt;
+      jac: array([ 4.26325639e-06, -8.88178415e-07, -1.59872117e-06])
+  message: b&#39;CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL&#39;
+     nfev: 60
+      nit: 13
+     njev: 15
+   status: 0
+  success: True
+        x: array([ 0.75364275, -0.6149775 , -5.22840061])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[374]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="n">X_leukemia_project_2d</span><span class="o">@</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1">#theta = result.x[0]+X_leukemia_project_2d[:,0]*result.x[1]+X_leukemia_project_2d[:,1]*result.x[2]</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">)))</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[375]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Y</span><span class="o">==</span><span class="n">prediction</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[375]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.9444444444444444</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Cool, lets create a class to do this</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[378]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">LogisticRegression</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coeffs</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+        <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+
+        <span class="c1"># define the objective/cost/loss function we want to minimise</span>
+        <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">Y</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_leukemia_project_2d</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))))))</span>
+
+        <span class="c1"># multi-dimensional optimisation is syntactically similar to 1D, </span>
+        <span class="c1"># but we are using Gradient and Hessian information from numerical evaluation of f to </span>
+        <span class="c1"># iteratively improve the solution along the steepest direction, etc. </span>
+        <span class="c1"># It &#39;LBFGS&#39; method you will see in scientific computing</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+        <span class="n">parameter_bounding_box</span><span class="o">=</span><span class="p">([</span><span class="n">b</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># specify the constraints for each parameter</span>
+        <span class="n">initial_arguments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># point in 2D to initialise the minimize algorithm</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">initial_arguments</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">parameter_bounding_box</span><span class="p">,)</span> <span class="c1"># just call the minimize method!</span>
+        <span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">,</span> <span class="s2">&quot;Not converged&quot;</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coeffs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span>
+        
+        
+    
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coeffs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="n">X</span><span class="o">@</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coeffs</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">prediction</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">theta</span><span class="p">)))</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span>
+            <span class="k">return</span> <span class="n">prediction</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Y</span><span class="o">==</span><span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[379]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_leukemia_project_2d</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>      fun: 12.343253309094855
+ hess_inv: &lt;3x3 LbfgsInvHessProduct with dtype=float64&gt;
+      jac: array([ 4.26325639e-06, -8.88178415e-07, -1.59872117e-06])
+  message: b&#39;CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL&#39;
+     nfev: 60
+      nit: 13
+     njev: 15
+   status: 0
+  success: True
+        x: array([ 0.75364275, -0.6149775 , -5.22840061])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[381]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_leukemia_project_2d</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[381]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.9444444444444444</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
