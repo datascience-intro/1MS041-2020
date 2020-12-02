@@ -35,3 +35,4 @@
 
 ### Other files
 If you want to do everything yourself, here is the data-zip file, [Only Data](Files/data.zip).
+In case you have images that dont show up, here is the images-zip file, [Only Images](Files/images.zip)
