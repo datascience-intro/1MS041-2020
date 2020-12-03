@@ -14843,10 +14843,10 @@ $$P\left (\left | |f(v)| - \sqrt{k} |v| \right |  \geq \epsilon \sqrt{k}|v| \rig
 
  
  
-<div id="98a9373f-09fe-417e-b490-b3d05d205aa1"></div>
+<div id="17a95ed0-5ddb-442d-8fe7-ba835f7119f3"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#98a9373f-09fe-417e-b490-b3d05d205aa1');
+var element = $('#17a95ed0-5ddb-442d-8fe7-ba835f7119f3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "1e86bd0da0494f1c9c1a4994b90ff7c5", "version_major": 2, "version_minor": 0}
@@ -15437,7 +15437,7 @@ You may need to include and evaluate code snippets from lecture notebooks in cel
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h2 id="Assignment-5,-PROBLEM-2">Assignment 5, PROBLEM 2<a class="anchor-link" href="#Assignment-5,-PROBLEM-2">&#182;</a></h2><p>Maximum Points = 1</p>
+<h2 id="Assignment-5,-PROBLEM-2">Assignment 5, PROBLEM 2<a class="anchor-link" href="#Assignment-5,-PROBLEM-2">&#182;</a></h2><p>Maximum Points = 2</p>
 
 </div>
 </div>
@@ -15445,10 +15445,10 @@ You may need to include and evaluate code snippets from lecture notebooks in cel
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Write a function that generates points from a unit ball in $d$ dimensions. The output should be a numpy array of shape <code>(n_samples,d)</code>. As always replace XXX with whatever makes sense.</p>
+<p>Write a function that generates points from a unit ball and unit sphere in $d$ dimensions. The output should be a numpy array of shape <code>(n_samples,d)</code>. As always replace XXX with whatever makes sense.</p>
 <p>Hint, numpy has a function called power, <a href="https://numpy.org/doc/stable/reference/generated/numpy.power.html">https://numpy.org/doc/stable/reference/generated/numpy.power.html</a>
 also remember <code>numpy.linalg.norm</code> to calculate length of vectors.</p>
-<p>Another hint that might be useful, note that numpy has broadcasting rule in order to make sense of the multiplication between different size vectors. Say we would like to compute the product of a (10,10) vector and a (10,1) vector, in this case numpy will broadcast the second vector to (10,10) by compying the values along the second axis. However for this to work they both have to have the same number of dimensions, i.e. we cannot multiply (10,10) and (10,) we have to reshape the second vector to (10,1) for broadcasting to work).</p>
+<p>Another hint that might be useful, note that numpy has broadcasting rule in order to make sense of the multiplication between different size vectors. Say we would like to compute the product of a (10,10) vector and a (10,1) vector, in this case numpy will broadcast the second vector to (10,10) by copying the values along the second axis. However for this to work they both have to have the same number of dimensions, i.e. we cannot multiply (10,10) and (10,) we have to reshape the second vector to (10,1) for broadcasting to work).</p>
 
 </div>
 </div>
@@ -15515,6 +15515,7 @@ You may need to include and evaluate code snippets from lecture notebooks in cel
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Perform the following three steps, then answer the question:</p>
 <ol>
 <li>Generate 200 points from the surface of the unit ball in 50 dimensions (use your solution from problem 2).</li>
 <li>Generate a few random lines through the origin and plot the distribution of points on each line.</li>
