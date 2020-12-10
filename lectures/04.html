@@ -13096,17 +13096,17 @@ div#notebook {
 <li>List Comprehensions</li>
 <li>Anonymous Functions </li>
 </ul>
-<h1 id="What-have-we-done?">What have we done?<a class="anchor-link" href="#What-have-we-done?">&#182;</a></h1><ul>
+<h2 id="What-have-we-done?">What have we done?<a class="anchor-link" href="#What-have-we-done?">&#182;</a></h2><ul>
 <li>Bash (A standard way to work with a terminal)</li>
 <li>Standard type (Numbers,Strings, Booleans and Sets)</li>
 <li>Maps, functions and probabilities</li>
 </ul>
-<h1 id="Where-are-we-going?">Where are we going?<a class="anchor-link" href="#Where-are-we-going?">&#182;</a></h1><ul>
+<h2 id="Where-are-we-going?">Where are we going?<a class="anchor-link" href="#Where-are-we-going?">&#182;</a></h2><ul>
 <li>We want to build a foundation in the basics about programming / probability / randomness, since machine learning is all about considering the data as being randomly observed and containing random noise.</li>
 <li>Also, the machine learning models that we will go through in this course are probabilistic, and to understand them and what they are supposed to do, we first need to all <code>learn the language</code>.</li>
 <li>In notebook 09, you can see the titles are more focused on "Estimation". In our context Estimation is the Learning in machine Learning.</li>
 </ul>
-<h1 id="Probability">Probability<a class="anchor-link" href="#Probability">&#182;</a></h1><h3 id="Recap-on-probability">Recap on probability<a class="anchor-link" href="#Recap-on-probability">&#182;</a></h3><p>An experiment is an activity or procedure that produces distinct or well-defined outcomes.  The set of such outcomes is called the sample space of the experiment.  The sample space is usually denoted with the symbol $\Omega$.</p>
+<h2 id="Probability">Probability<a class="anchor-link" href="#Probability">&#182;</a></h2><h3 id="Recap-on-probability">Recap on probability<a class="anchor-link" href="#Recap-on-probability">&#182;</a></h3><p>An experiment is an activity or procedure that produces distinct or well-defined outcomes.  The set of such outcomes is called the sample space of the experiment.  The sample space is usually denoted with the symbol $\Omega$.</p>
 <p>An event is a subset of the sample space.</p>
 <p>Probability is a function that associates each event in a set of events (denoted by $\{ \text{ events }\}$) with a real number in the range 0 to 1 (denoted by $[0,1]$):</p>
 $$P : \{ \text{ events } \} \rightarrow [0,1]$$<p>while satisfying the following axioms:</p>
@@ -13195,12 +13195,12 @@ $$<p>In words, we take all the possible intersections of one, two, three, $\ldot
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Probability-Space">Probability Space<a class="anchor-link" href="#Probability-Space">&#182;</a></h2><p>Thus the domain of the probability is not just any old set of events (recall events are subsets of $\Omega$), but rather a set of events that form a $\sigma$-field that contains the sample space $\Omega$, is closed under complementation and countable union.</p>
+<h3 id="Probability-Space">Probability Space<a class="anchor-link" href="#Probability-Space">&#182;</a></h3><p>Thus the domain of the probability is not just any old set of events (recall events are subsets of $\Omega$), but rather a set of events that form a $\sigma$-field that contains the sample space $\Omega$, is closed under complementation and countable union.</p>
 <p>$\left(\Omega, \mathcal{F}(\Omega), P\right)$ is called a <em>probability space</em> or probability triple.</p>
-<h3 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h3><p>Let $\Omega = \{H, T\}$.  What $\sigma$-fields could we have?</p>
+<h4 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h4><p>Let $\Omega = \{H, T\}$.  What $\sigma$-fields could we have?</p>
 <p>$\mathcal{F}\left({\Omega}\right) = \{\{H, T\}, \emptyset, \{H\}, \{T\}\}$ is the finest $\sigma$-field.</p>
 <p>$\mathcal{F}'\left({\Omega}\right) = \{ \{H, T\}, \emptyset \}$ is a trivial $\sigma$-field.</p>
-<h3 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h3><p>Let $\Omega = \{\omega_1, \ldots, \omega_n\}$.</p>
+<h4 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h4><p>Let $\Omega = \{\omega_1, \ldots, \omega_n\}$.</p>
 <p>$\mathcal{F}\left({\Omega}\right) = 2^\Omega$, the set of all subsets of $\Omega$, also known as the power set of $\Omega$.</p>
 <p>$\vert 2^\Omega \vert = 2^n$.</p>
 <p>We have finally defined <em>probability space</em> as quickly as possible from first principles. As your mathematical background matures you can dive deeper into more subtle aspects of <a href="https://en.wikipedia.org/wiki/Probability_space">probability space</a>, in its generality, as needed.</p>
@@ -13252,24 +13252,24 @@ $$<p>In words, we take all the possible intersections of one, two, three, $\ldot
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Independence">Independence<a class="anchor-link" href="#Independence">&#182;</a></h2><p>Two events $A$ and $B$ are independent if $P(A \cap B) = P(A)P(B)$.</p>
+<h3 id="Independence">Independence<a class="anchor-link" href="#Independence">&#182;</a></h3><p>Two events $A$ and $B$ are independent if $P(A \cap B) = P(A)P(B)$.</p>
 <p>Intuitively, $A$ and $B$ are independent if the occurrence of $A$ has no influence on the probability of the occurrence of $B$ (and vice versa).</p>
-<h3 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h3><p>Flip a fair coin  twice.  Event $A$ is the event "The first flip is 'H'"; event $B$ is the event "The second flip is 'H'".</p>
+<h4 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h4><p>Flip a fair coin  twice.  Event $A$ is the event "The first flip is 'H'"; event $B$ is the event "The second flip is 'H'".</p>
 <p>$P(A) = \frac{1}{2}$, $P(B) = \frac{1}{2}$</p>
 <p>Because the flips are independent (what happens on the first flip does not influence the second flip),</p>
 <p>$P(A \cap B) = \frac{1}{2} \times \frac{1}{2} = \frac{1}{4}$.</p>
-<h3 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h3><p>We can generalise this by saying that we will flip a coin with an unknown probability parameter $\theta \in [0,1]$.  We flip this coin twice and the coin is made so that for any flip,  $P(\mbox{'H'}) = \theta$, $P(\mbox{'T'}) = 1-\theta$.</p>
+<h4 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h4><p>We can generalise this by saying that we will flip a coin with an unknown probability parameter $\theta \in [0,1]$.  We flip this coin twice and the coin is made so that for any flip,  $P(\mbox{'H'}) = \theta$, $P(\mbox{'T'}) = 1-\theta$.</p>
 <p>Take the same events as before: event $A$ is the event "The first flip is 'H'"; event $B$ is the event "The second flip is 'H'".</p>
 <p>Because the flips are independent,</p>
 <p>$P(A \cap B) = \theta \times \theta = \theta^2$.</p>
 <p>If we take event $C$ as the event "The second flip is 'T'", then</p>
 <p>$P(A \cap C) = \theta \times (1-\theta)$.</p>
-<h3 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h3><p>Roll a fair die twice.  The face of the die is enumerated 1, 2, 3, 4, 5, 6.</p>
+<h4 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h4><p>Roll a fair die twice.  The face of the die is enumerated 1, 2, 3, 4, 5, 6.</p>
 <p>Event $A$ is the event "The first roll is 5"; event $B$ is the event "The second roll is 1".</p>
 <p>$P(A) = \frac{1}{6}$, $P(B) = \frac{1}{6}$</p>
 <p>If the two rolls are independent,</p>
 <p>$P(A \cap B) = \frac{1}{6} \times \frac{1}{6} = \frac{1}{36}$</p>
-<h3 id="You-try-at-home">You try at home<a class="anchor-link" href="#You-try-at-home">&#182;</a></h3><p>For those who are rusty on probability models.</p>
+<h4 id="You-try-at-home">You try at home<a class="anchor-link" href="#You-try-at-home">&#182;</a></h4><p>For those who are rusty on probability models.</p>
 <p>Suppose you roll two fair dice independently. What is the probability of getting the sum of the outcomes to be seven?</p>
 <p>Solution: Watch the <a href="https://www.youtube.com/embed/2XToWi9j0Tk">Khan Academy movie about probability and two dice</a>.</p>
 
@@ -13300,8 +13300,8 @@ $$P(B|A) = \frac{P(B \cap A)}{P(A)} = \frac{P(B)P(A)}{P(A)} = P(B)$$<p>which mak
 <p>$P(B|A) = \frac{P(B \cap A)}{P(A)} = \frac{\frac{1}{36}}{\frac{5}{36}} = \frac{1}{5}$</p>
 <p>Look at this result in terms of what we said about the sample space shrinking to $A$.</p>
 <p><img src="images/TwoDiceOutcomesBgivenA.png" alt="TwoDiceOutcomesBgivenA.png" width=350></p>
-<h2 id="Bayes-Theorem">Bayes Theorem<a class="anchor-link" href="#Bayes-Theorem">&#182;</a></h2><p>We just saw that $P(B|A)$, the conditional probability that event $B$ will occur given that $A$ has already occurred is defined by $P(B \cap A)/P(A)$.  By using the fact that $B \cap A = A \cap B$ and reapplying the definition of conditional probability to $P(A|B)=P(A \cap B)/P(B)$, we get the so-called Bayes theorem.</p>
-$$\boxed{P(B|A) = \frac{P(B \cap A)}{P(A)} = \frac{P(A \cap B)}{P(A)} = \frac{P(A|B) P(B)}{P(A)}}$$<h3 id="You-try-at-home">You try at home<a class="anchor-link" href="#You-try-at-home">&#182;</a></h3><p>Suppose we have a bag of ten coins. Nine of the ten coins are fair but one of the coins has heads on both sides. What is the probability of getting five heads in a row if I picked a coin at random from the bag and flipped it five times? If I obtained five heads in a row by choosing a coin out of the bag at random and flipping it five times, then what is the probability that I have picked the two-headed coin?</p>
+<h3 id="Bayes-Theorem">Bayes Theorem<a class="anchor-link" href="#Bayes-Theorem">&#182;</a></h3><p>We just saw that $P(B|A)$, the conditional probability that event $B$ will occur given that $A$ has already occurred is defined by $P(B \cap A)/P(A)$.  By using the fact that $B \cap A = A \cap B$ and reapplying the definition of conditional probability to $P(A|B)=P(A \cap B)/P(B)$, we get the so-called Bayes theorem.</p>
+$$\boxed{P(B|A) = \frac{P(B \cap A)}{P(A)} = \frac{P(A \cap B)}{P(A)} = \frac{P(A|B) P(B)}{P(A)}}$$<h4 id="You-try-at-home">You try at home<a class="anchor-link" href="#You-try-at-home">&#182;</a></h4><p>Suppose we have a bag of ten coins. Nine of the ten coins are fair but one of the coins has heads on both sides. What is the probability of getting five heads in a row if I picked a coin at random from the bag and flipped it five times? If I obtained five heads in a row by choosing a coin out of the bag at random and flipping it five times, then what is the probability that I have picked the two-headed coin?</p>
 <p>Solution: Watch the Khan Academy movies about applications of conditional probability and Bayes theorem to this bag of 10 coins.</p>
 <ul>
 <li><a href="http://www.youtube.com/watch?v=xf3vfczoCho">http://www.youtube.com/watch?v=xf3vfczoCho</a></li>
@@ -13489,7 +13489,7 @@ You may need to include and evaluate code snippets from lecture notebooks in cel
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Random-Variables">Random Variables<a class="anchor-link" href="#Random-Variables">&#182;</a></h1><p>A random variable is a mapping from the sample space $\Omega$ to the set of real numbers $\mathbb{R}$.  In other words, it is a numerical value determined by the outcome of the experiment. (Actually, this is a real-valued random variable and one can have random variables taking values in other sets).</p>
+<h2 id="Random-Variables">Random Variables<a class="anchor-link" href="#Random-Variables">&#182;</a></h2><p>A random variable is a mapping from the sample space $\Omega$ to the set of real numbers $\mathbb{R}$.  In other words, it is a numerical value determined by the outcome of the experiment. (Actually, this is a real-valued random variable and one can have random variables taking values in other sets).</p>
 <p>This is not as complicated as it sounds:  let's look at a simple example:</p>
 <h3 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h3><h4 id="Roll-two-fair-dice.">Roll two fair dice.<a class="anchor-link" href="#Roll-two-fair-dice.">&#182;</a></h4><p>The sample space is the set of 36 ordered pairs $\Omega = \{(1,1), (1,2), \dots, (2,1), (2,2), \ldots, (1,6), \ldots, (6,6)\}$</p>
 <p>Let random variable $X$ be the sum of the two numbers that appear, $X : \Omega \rightarrow \mathbb{R}$.</p>
@@ -13502,16 +13502,16 @@ You may need to include and evaluate code snippets from lecture notebooks in cel
 $$X: \Omega \rightarrow \mathbb{R}$$<p>such that for every number $x$ in $\mathbb{R}$, the inverse image of the half-open interval $(-\infty, x]$ is an element of the collection of events $\mathcal{F}$, i.e.,</p>
 <p>for every number $x$ in $\mathbb{R}$, 
 $$X^{[-1]}\left( (-\infty, x] \right) := \{\omega: X(\omega) \le x\} \in \mathcal{F}$$</p>
-<h2 id="Discrete-random-variable">Discrete random variable<a class="anchor-link" href="#Discrete-random-variable">&#182;</a></h2><p>A random variable is said to be discrete when it can take a countable sequence of values (a finite set is countable).  The three examples below are discrete random variables.</p>
-<h2 id="Probability-of-a-random-variable">Probability of a random variable<a class="anchor-link" href="#Probability-of-a-random-variable">&#182;</a></h2><p>Finally, we assign probability to a random variable $X$ as follows:</p>
-$$P(X \le x) = P \left( X^{[-1]}\left( (-\infty, x] \right) \right) := P\left( \{ \omega: X(\omega) \le x \} \right)$$<h2 id="Distribution-Function">Distribution Function<a class="anchor-link" href="#Distribution-Function">&#182;</a></h2><p>The distribution function (DF) or cumulative distribution function (CDF) of any RV $X$, denoted by $F$ is:</p>
-$$F(x) := P(X \leq x) = P\left( \{ \omega: X(\omega) \leq x \} \right) \mbox{, for any } x \in \mathbb{R}$$<h3 id="Example---Sum-of-Two-Dice">Example - Sum of Two Dice<a class="anchor-link" href="#Example---Sum-of-Two-Dice">&#182;</a></h3><p>In our example above (tossing two die and taking $X$ as the sum of the numbers shown) we said that $X\left((3,2)\right) = 5$, but (3,2) is not the only outcome that $X$ maps to 5: $X^{[-1]}\left(5\right) = \{(1,4), (2,3), (3,2), (4,1)\}$</p>
+<h3 id="Discrete-random-variable">Discrete random variable<a class="anchor-link" href="#Discrete-random-variable">&#182;</a></h3><p>A random variable is said to be discrete when it can take a countable sequence of values (a finite set is countable).  The three examples below are discrete random variables.</p>
+<h3 id="Probability-of-a-random-variable">Probability of a random variable<a class="anchor-link" href="#Probability-of-a-random-variable">&#182;</a></h3><p>Finally, we assign probability to a random variable $X$ as follows:</p>
+$$P(X \le x) = P \left( X^{[-1]}\left( (-\infty, x] \right) \right) := P\left( \{ \omega: X(\omega) \le x \} \right)$$<h3 id="Distribution-Function">Distribution Function<a class="anchor-link" href="#Distribution-Function">&#182;</a></h3><p>The distribution function (DF) or cumulative distribution function (CDF) of any RV $X$, denoted by $F$ is:</p>
+$$F(x) := P(X \leq x) = P\left( \{ \omega: X(\omega) \leq x \} \right) \mbox{, for any } x \in \mathbb{R}$$<h4 id="Example---Sum-of-Two-Dice">Example - Sum of Two Dice<a class="anchor-link" href="#Example---Sum-of-Two-Dice">&#182;</a></h4><p>In our example above (tossing two die and taking $X$ as the sum of the numbers shown) we said that $X\left((3,2)\right) = 5$, but (3,2) is not the only outcome that $X$ maps to 5: $X^{[-1]}\left(5\right) = \{(1,4), (2,3), (3,2), (4,1)\}$</p>
 $$
 \begin{array}{lcl} P(X=5) &amp; = &amp; P\left(\{\omega: X(\omega) = 5\}\right)\\ &amp; = &amp; P\left(X^{[-1]}\left(5\right)\right)\\ &amp; = &amp; P(\{(1,4), (2,3), (3,2), (4,1)\})
 \end{array}
-$$<h3 id="Example---Pick-a-Fruit-at-Random">Example - Pick a Fruit at Random<a class="anchor-link" href="#Example---Pick-a-Fruit-at-Random">&#182;</a></h3><p>Remember our "well-mixed" fruit bowl containing 3 apples, 2 oranges, 1 lemon?  If our experiment is to take a piece of fruit from the bowl and the outcome is the kind of fruit we take, then we saw that $\Omega = \{\mbox{apple}, \mbox{orange}, \mbox{lemon}\}$.</p>
+$$<h4 id="Example---Pick-a-Fruit-at-Random">Example - Pick a Fruit at Random<a class="anchor-link" href="#Example---Pick-a-Fruit-at-Random">&#182;</a></h4><p>Remember our "well-mixed" fruit bowl containing 3 apples, 2 oranges, 1 lemon?  If our experiment is to take a piece of fruit from the bowl and the outcome is the kind of fruit we take, then we saw that $\Omega = \{\mbox{apple}, \mbox{orange}, \mbox{lemon}\}$.</p>
 <p>Define a random variable $Y$ to give each kind of fruit a numerical value: $Y(\mbox{apple}) = 1$, $Y(\mbox{orange}) = 0$, $Y(\mbox{lemon}) = 0$.</p>
-<h3 id="Example---Flip-Until-Heads">Example - Flip Until Heads<a class="anchor-link" href="#Example---Flip-Until-Heads">&#182;</a></h3><p>Flip a fair coin  until a 'H' appears.  Let $X$ be the number of times we have to flip the coin until the first 'H'.</p>
+<h4 id="Example---Flip-Until-Heads">Example - Flip Until Heads<a class="anchor-link" href="#Example---Flip-Until-Heads">&#182;</a></h4><p>Flip a fair coin  until a 'H' appears.  Let $X$ be the number of times we have to flip the coin until the first 'H'.</p>
 <p>$\Omega = \{\mbox{H}, \mbox{TH}, \mbox{TTH}, \ldots, \mbox{TTTTTTTTTH}, \ldots \}$</p>
 <p>$X(\mbox{H}) = 0$,  $X(\mbox{TH}) = 1$, $X(\mbox{TTH}) = 2$, $\ldots$</p>
 <h4 id="You-try-at-home">You try at home<a class="anchor-link" href="#You-try-at-home">&#182;</a></h4><p>Consider the example above of 'Pick a Fruit at Random'. We defined a random variable $Y$ there as $Y(\mbox{apple}) = 1$, $Y(\mbox{orange}) = 0$, $Y(\mbox{lemon}) = 0$. Using step by step arguments as done in the example of 'Sum of Two Dice' above, find the following probabilities for our random variable $Y$: 
@@ -13529,7 +13529,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a class for a random variable map - just evaluate this cell and don&#39;t worry about understanding this now</span>
@@ -14646,7 +14646,7 @@ $$<p>We emphasise the dependence of the probabilities on the parameter $\theta$ 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="For-loops">For loops<a class="anchor-link" href="#For-loops">&#182;</a></h1><p><em>For loops</em> are a very useful way that most computer programming languages provide to allow us to repeat the same action.   In Sage, you can use a for loop on a list to just go through the elements in the list, doing something with each element in turn.</p>
+<h2 id="For-loops">For loops<a class="anchor-link" href="#For-loops">&#182;</a></h2><p><em>For loops</em> are a very useful way that most computer programming languages provide to allow us to repeat the same action.   In Sage, you can use a for loop on a list to just go through the elements in the list, doing something with each element in turn.</p>
 <p>The SageMath/Python syntax for a <em>for loop</em> is:</p>
 <ol>
 <li>Start with the keyword <code>for</code></li>
@@ -15076,7 +15076,7 @@ Number on die is  6
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Conditional-statements">Conditional statements<a class="anchor-link" href="#Conditional-statements">&#182;</a></h1><p>A conditional statement is also known as an if statement or if-else statement.   And it's basically as simple as that:   if [some condition] is true then do [something].   To make it more powerful, we can also say else (ie, if not), then do [a different something].</p>
+<h2 id="Conditional-statements">Conditional statements<a class="anchor-link" href="#Conditional-statements">&#182;</a></h2><p>A conditional statement is also known as an if statement or if-else statement.   And it's basically as simple as that:   if [some condition] is true then do [something].   To make it more powerful, we can also say else (ie, if not), then do [a different something].</p>
 <p>The if statement syntax is a way of putting into a programming language a way of thinking that we use every day:   E.g. "if it is raining, I'll take the bus to uni; else I'll walk".</p>
 <p>You'll notice that when we have an if statement, what we do depends on whether the condition we specify is true or false (i.e. is conditional on this expression).   This is why if statements are called conditional statements.</p>
 <p>When we say "depends on whether the condition we specify is true or false", in SageMath terms we are talking about whether the expression we specify as our condition evaluates to the Boolean true or the Boolean false.   Remember those Boolean values, true and false, that we talked about in Lab 1?</p>
