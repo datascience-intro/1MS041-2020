@@ -20,7 +20,7 @@
 15. [Supervised learning and Learning Theory](15.md)
 16. [High Dimensional geometry and probability](16.md)
 17. [Singular Value Decomposition](17.md)
-18. [Putting it all together (To be put up)](18.md)
+18. [Putting it all together](18.md)
 
 ### Assignments
 01. [Assignment 1](https://datascience-intro.github.io/1MS041-2020/lectures/Assignment_1.ipynb)
