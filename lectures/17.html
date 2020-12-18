@@ -13504,7 +13504,7 @@ $$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>It should be clear from the definition and the "Greedy Algorithm" theorem that $proj_{V_m} A = A$. That is, if we use all possible singular vectors, then we can represent the data from $A$ as points in $V_m$. That is any row of $A$ can be written as a linear combination of all the singular vectors.</p>
-<p>We can now implement <code>findSingularValues</code> using our methods above</p>
+<p>We can now implement <code>findSingularVectors</code> using our methods above</p>
 
 </div>
 </div>
@@ -13514,7 +13514,7 @@ $$</p>
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">findSingularValues</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">findSingularVectors</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Takes a n x m matrix of points, where the points are on the rows. </span>
 <span class="sd">    It then computes the first k singular vectors with corresponding singular values&#39;&#39;&#39;</span>
     <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;A needs to be a 2d matrix&quot;</span>
@@ -13538,7 +13538,7 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>findSingularValues</code> on X is a simple as</p>
+<p><code>findSingularVectors</code> on X is a simple as</p>
 
 </div>
 </div>
@@ -13548,7 +13548,7 @@ $$</p>
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">findSingularValues</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">findSingularVectors</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13596,7 +13596,7 @@ $$</p>
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">findSingularValues</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">findSingularVectors</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
